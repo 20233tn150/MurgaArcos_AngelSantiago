@@ -25,23 +25,6 @@
         tools:context=".MenuVoid" />
 
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btnMyLocation"
-        android:layout_width="55dp"
-        android:layout_height="48dp"
-        android:backgroundTint="#5D22E1"
-        android:contentDescription="Centro de ubicación"
-        android:textColor="@color/white"
-        app:cornerRadius="100px"
-        app:icon="@drawable/ic_my_location"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.894"
-        app:layout_constraintWidth_percent="0.5" />
-
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="68dp"

@@ -39,13 +39,7 @@ class MenuVoid : AppCompatActivity(), OnMapReadyCallback {
         val mapFragment = supportFragmentManager.findFragmentById(R.id.map) as SupportMapFragment
         mapFragment.getMapAsync(this)
 
-        // Configura el botón para centrar la ubicación
-        val btnMyLocation: MaterialButton = findViewById(R.id.btnMyLocation)
-        btnMyLocation.setOnClickListener {
-            userLocation?.let {
-                map.animateCamera(CameraUpdateFactory.newLatLngZoom(it, 15f))
-            } ?: Toast.makeText(this, "Ubicación no disponible", Toast.LENGTH_SHORT).show()
-        }
+
     }
 
     // Se llama cuando el mapa está listo para usarse

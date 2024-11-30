@@ -75,6 +75,13 @@ class MenuLluviosoActivity : AppCompatActivity() {
                     startActivity(intent)
                     true
                 }
+                R.id.opcion4 -> {
+                    Toast.makeText(this, "Cerrando Sesión...", Toast.LENGTH_SHORT).show()
+
+                    val intent = Intent(this, LoginActivity::class.java)
+                    startActivity(intent)
+                    true
+                }
                 else -> false
             }
         }
