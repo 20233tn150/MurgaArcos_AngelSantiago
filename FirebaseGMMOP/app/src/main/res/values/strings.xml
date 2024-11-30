@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Clima Para Ti</string>
+    <string name="title_activity_login">Login</string>
+    <string name="title_activity_maps">MapsActivity</string>
+    <string name="title_activity_maps_fbactivity">MapsFBActivity</string>
+    <string name="title_activity_menu">Menú</string>
+</resources>
