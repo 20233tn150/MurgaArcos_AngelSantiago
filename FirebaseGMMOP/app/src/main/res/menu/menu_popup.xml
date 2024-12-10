@@ -2,15 +2,10 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/opcion1"
-        android:title="Cuernavaca" />
+        android:title="Ubicaciones" />
+
     <item
         android:id="@+id/opcion2"
-        android:title="Jiutepec" />
-    <item
-        android:id="@+id/opcion3"
-        android:title="Zapata" />
-    <item
-        android:id="@+id/opcion4"
         android:icon="@drawable/ic_menu"
         android:title="Cerrar Sesión" />
 </menu>

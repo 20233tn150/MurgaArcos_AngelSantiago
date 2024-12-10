@@ -1,10 +1,13 @@
 package utez.edu.mx
 
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
+import android.provider.Settings
+
 
 
 import androidx.appcompat.app.AppCompatActivity
@@ -17,6 +20,9 @@ import com.google.firebase.auth.FirebaseAuth
 class LoginActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        requestWriteSettingsPermission()
+
 
 
         setContentView(R.layout.activity_login)
@@ -94,6 +100,16 @@ class LoginActivity : AppCompatActivity() {
                 passwordEditText.requestFocus()
                 return@setOnClickListener
             }
+
+
+            // Verificar permiso antes de iniciar sesión
+            if (!Settings.System.canWrite(this)) {
+                Toast.makeText(this, "Debes habilitar el permiso para continuar", Toast.LENGTH_SHORT).show()
+                requestWriteSettingsPermission()
+                return@setOnClickListener
+            }
+
+
             // Intentar iniciar sesión con el correo y la contraseña proporcionados
             auth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener { task ->
@@ -125,6 +141,15 @@ class LoginActivity : AppCompatActivity() {
             // Redirigir a la LoginActivity
             startActivity(Intent(this, LoginActivity::class.java))
             finish()
+        }
+    }
+
+    private fun requestWriteSettingsPermission() {
+        if (!Settings.System.canWrite(this)) {
+            val intent = Intent(Settings.ACTION_MANAGE_WRITE_SETTINGS)
+            intent.data = Uri.parse("package:$packageName")
+            Toast.makeText(this, "Por favor, habilita el permiso para ajustar el brillo", Toast.LENGTH_LONG).show()
+            startActivity(intent)
         }
     }
 }

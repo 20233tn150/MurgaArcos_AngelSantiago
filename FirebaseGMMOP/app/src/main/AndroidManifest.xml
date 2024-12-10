@@ -4,6 +4,9 @@
     <!-- Permiso para acceder a la ubicación del dispositivo -->
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" /> <!-- Permiso para la ubicación aproximada -->
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.WRITE_SETTINGS"
+        tools:ignore="ProtectedPermissions" />
+
 
     <application
         android:allowBackup="true"

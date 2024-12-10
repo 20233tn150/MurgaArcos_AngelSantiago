@@ -2,12 +2,14 @@ package utez.edu.mx
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.MenuInflater
 import android.view.MenuItem
 import android.view.View
 import android.widget.ImageView
 import android.widget.PopupMenu
 import android.widget.RadioButton
+import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -19,6 +21,22 @@ class MenuLluviosoActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_menu_lluvioso)
+
+
+        // Capturar datos enviados por el Intent
+        val placeName = intent.getStringExtra("place_name") ?: "Lugar desconocido"
+        val temperature = intent.getDoubleExtra("temperature", 0.0)
+
+        // Depuración de datos recibidos
+        Log.d("DEBUG", "Recibido en MenuSoleadoActivity: Lugar: $placeName, Temp: $temperature°C")
+        Toast.makeText(this, "Recibido: $placeName, $temperature°C", Toast.LENGTH_SHORT).show()
+
+        // Actualizar los TextView con los datos recibidos
+        val gradosTextView = findViewById<TextView>(R.id.gradosTextView)
+        val municipioTextView = findViewById<TextView>(R.id.municipioTextView)
+
+        gradosTextView.text = "$temperature°C"
+        municipioTextView.text = placeName
 
         val icMenuView = findViewById<ImageView>(R.id.icMenuView)
         // Abrir el icono cuando sea tocado
@@ -58,24 +76,12 @@ class MenuLluviosoActivity : AppCompatActivity() {
         popupMenu.setOnMenuItemClickListener { menuItem: MenuItem ->
             when (menuItem.itemId) {
                 R.id.opcion1 -> {
-                    // Navegar a otra vista
-                    val intent = Intent(this, MenuModeradoActivity::class.java)
+                    val intent = Intent(this, MenuVoid::class.java)
                     startActivity(intent)
                     true
                 }
+
                 R.id.opcion2 -> {
-                    // Otra acción
-                    val intent = Intent(this, MenuLluviosoActivity::class.java)
-                    startActivity(intent)
-                    true
-                }
-                R.id.opcion3 -> {
-                    // Otra acción
-                    val intent = Intent(this, MenuSoleadoActivity::class.java)
-                    startActivity(intent)
-                    true
-                }
-                R.id.opcion4 -> {
                     Toast.makeText(this, "Cerrando Sesión...", Toast.LENGTH_SHORT).show()
 
                     val intent = Intent(this, LoginActivity::class.java)

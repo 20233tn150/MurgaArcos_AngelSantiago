@@ -56,10 +56,10 @@
 
     <TextView
         android:id="@+id/textView4"
-        android:layout_width="210dp"
-        android:layout_height="53dp"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
         android:fontFamily="sans-serif-medium"
-        android:text="Se registrará la ubicación actual"
+        android:text="Haz click sobre algun lugar en el mapa y registralo"
         android:textAlignment="center"
         android:textColor="@color/white"
         android:textSize="20sp"
@@ -78,7 +78,7 @@
         android:text="Registrar Ubicación"
         android:textAlignment="center"
         android:textColor="@color/white"
-        android:textSize="30sp"
+        android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
